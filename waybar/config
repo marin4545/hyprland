@@ -1,0 +1,94 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "margin-top": 0,
+    "modules-left": [
+        "custom/sysmon",
+        "custom/cava"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/mpris",
+        "hyprland/workspaces",
+        "pulseaudio",
+        "network",
+        "custom/control",
+        "custom/power"
+    ],
+    "modules-right": [
+        "custom/date"
+    ],
+
+    "custom/sysmon": {
+        "format": "󰋑",
+        "on-click": "~/.config/waybar/scripts/sysmon-popup.sh",
+        "tooltip": false
+    },
+
+    "custom/cava": {
+        "exec": "/bin/bash /home/marin/.config/waybar/scripts/cava-bar.sh",
+        "interval": "once",
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "custom/mpris": {
+        "exec": "~/.config/waybar/scripts/mpris-scroll.sh",
+        "interval": 1,
+        "on-click": "~/.config/waybar/scripts/mpris-toggle.sh",
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "hyprland/workspaces": {
+        "format": "●",
+        "format-active": "⊙",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": 2
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip-format": "{ipaddr}",
+        "on-click": "~/.config/waybar/scripts/network-popup.sh"
+    },
+
+    "custom/control": {
+        "format": "󰒓",
+        "on-click": "~/.config/waybar/scripts/control-center.sh",
+        "tooltip": false
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+    "custom/date": {
+        "exec": "LC_TIME=en_US.UTF-8 date '+%a, %m/%d'",
+        "interval": 60,
+        "format": "{}",
+        "tooltip": false
+    }
+}
